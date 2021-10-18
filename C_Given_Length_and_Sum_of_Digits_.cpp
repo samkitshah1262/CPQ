@@ -42,22 +42,56 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
+// int dp(int n){
+//     int d_p[n+1][10];
+//     for(int i=0;i<n+1;i++){
+//         for(int j=0;j<10;j++){
 
-void solve(){
-	int i,n,x,y,a,b,c,sam=0;
-}
+//         }
+//     }
+// }
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
+    
+    int s,n,i,j,x,y,a,b,c;
+    cin>>n>>s;
+	vi v;
+	if(s==0){
+		cout<<-1<<" "<<-1;
+		return 0;
 	}
-
-
+    while(true){
+		if(n==0){
+			break;
+		}
+		if(s<9){
+			break;
+		}
+		v.pb(9);
+		n--;
+		s=s-9;
+	}
+	if(n==0 && s>0){
+		cout<<-1<<" "<<-1;
+		return 0;
+	}
+	else if(n>0 && s>0){
+		x=s-9*v.size();
+		v.pb(x);
+		n--;
+		while(n--){
+			v.pb(0);
+		}
+	}
+	for(i=0;i<v.size();i++){
+		cout<<v[v.size()-1-i];
+	}
+	cout<<" ";
+		for(i=0;i<v.size();i++){
+		cout<<v[i];
+	}
 
 	return 0;
 }

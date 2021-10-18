@@ -43,8 +43,48 @@ void setup(string s) {
 const int M = 1e9+7;
 
 
-void solve(){
-	int i,n,x,y,a,b,c,sam=0;
+void solve(int tt){
+	int i,n,x,y,a,b,c,d,m,sam=0,cd=0,cc=0;
+    string s;
+    cin>>n>>d>>c>>m;
+    cin>>s;
+
+    for(i=0;i<n;i++){
+        if(d<0){
+            //sam=1;
+             x=123;
+                break;
+        }
+        if(c<0){
+            //sam=1;
+             x=123;
+                break;
+        }
+        if(s[i]=='D'){
+            // if(sam==1){
+            //     x=123;
+            //     break;
+            // }
+            d--;
+            c=c+m;
+            cd++;
+        }
+        if(s[i]=='C'){
+            c--;
+
+            //cc++;
+        }
+    }
+    if(cd==0){
+        cout<<"Case #"<<tt+1<<": YES"<<endl;
+        return;
+    }
+    if(x==123){
+        cout<<"Case #"<<tt+1<<": NO"<<endl;
+    }
+    else{
+        cout<<"Case #"<<tt+1<<": YES"<<endl;
+    }
 }
 
 int main(void) {
@@ -53,8 +93,8 @@ int main(void) {
 	
 	ll tt;
 	cin>>tt;
-	while(tt--){
-		solve();
+	for(int i=0;i<tt;i++){
+		solve(i);
 	}
 
 

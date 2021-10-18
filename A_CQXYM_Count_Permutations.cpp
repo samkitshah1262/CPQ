@@ -42,21 +42,15 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
-
-void solve(){
-	int i,n,x,y,a,b,c,sam=0;
-}
-
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
-
+    int n,i,a,b,x,y,j;
+    cin>>n;
+    forn(j,n){
+        cin>>x;
+        
+    }
 
 
 	return 0;

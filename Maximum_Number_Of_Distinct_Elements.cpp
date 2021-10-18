@@ -45,6 +45,18 @@ const int M = 1e9+7;
 
 void solve(){
 	int i,n,x,y,a,b,c,sam=0;
+    cin>>n;
+    vi v;
+    forn(i,n){
+        cin>>a;
+        v.pb(a);
+    }
+    //sort(all(v));
+    vi vf;
+    forn(i,n){
+        cout<<v[i]-1<<" ";
+    }
+    cout<<endl;
 }
 
 int main(void) {

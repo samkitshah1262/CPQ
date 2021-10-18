@@ -24,7 +24,7 @@ using pl = pair<ll, ll>;
 #define inpl(e) ll e; cin >> e
 #define inps(e) string e; cin >> e
 #define T int tt; cin >> tt; while(tt--)
-
+#define ull unsigned long long int
 
 template<typename U>
 void print(U arr) {
@@ -43,21 +43,58 @@ void setup(string s) {
 const int M = 1e9+7;
 
 
-void solve(){
-	int i,n,x,y,a,b,c,sam=0;
+int binaryToDecimal(int n,long long int k)
+{
+    int num = n;
+    int dec_value = 0;
+ 
+    // Initializing base value to 1, i.e 2^0
+    int base = 1;
+ 
+    int temp = num;
+    while (temp) {
+        int last_digit = temp % 10;
+        temp = temp / 10;
+ 
+        dec_value +=( last_digit%M * base%M)%M;
+ 
+        base =( base%M * k%M)%M;
+    }
+ 
+    return dec_value%M;
 }
+
+int decimalToBinary(int N)
+{
+ 
+    // To store the binary number
+    ull B_Number = 0;
+    int cnt = 0;
+    while (N != 0) {
+        int rem = N % 2;
+        ull c = pow(10, cnt);
+        B_Number += rem * c;
+        N /= 2;
+ 
+        // Count used to store exponent value
+        cnt++;
+    }
+ 
+    return B_Number;
+}
+
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
-
-
-
+    long long int t,n,a,i,j,b,x,y,k;
+    cin>>t;
+    for(i=0;i<t;i++){
+        cin>>n>>k;
+        x=decimalToBinary(k);
+      y=(binaryToDecimal(x,n))%M;
+      cout<<y%M<<endl;  
+    }
+ 
 	return 0;
 }

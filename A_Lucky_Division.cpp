@@ -45,17 +45,40 @@ const int M = 1e9+7;
 
 void solve(){
 	int i,n,x,y,a,b,c,sam=0;
+
+}
+
+bool cl(int k){
+    string s=to_string(k);
+    for(int l=0;l<s.size();l++){
+        if(s[l]=='7' || s[l]=='4'){
+            continue;
+        }
+        else{
+            return false;
+        }
+    }
+    return true;
 }
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
+	ll n;
+	cin>>n;
+	// while(tt--){
+	// 	solve();
+	// }
+    fora(i,1,n+1){
+        if(cl(i)){
+            if(n%i==0){
+                cout<<"YES";
+                return 0;
+            }
+        }
+    }
+    cout<<"NO";
 
 
 

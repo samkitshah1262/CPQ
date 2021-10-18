@@ -42,21 +42,32 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
-
-void solve(){
-	int i,n,x,y,a,b,c,sam=0;
-}
-
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
+    int i,n,x,y,a,j=0;
+    cin>>a;
+    forn(k,a){
+        cin>>n;
+        x=n;
+        int sam,ans,temp;
+        while(1){
+            y=int(pow(2,j));
+            if(x/y==0){
+                break;
+            }
+            j++;
+        }
+        j--;
+        //cout<<j<<" j"<<endl;
+        sam=int(pow(2,j));
+        if(x%sam==0 && x!=2 && x!=1){
+            sam=int(pow(2,j-1))+1;
 
+        }
+        ans=n-sam+1;
+        cout<<ans<<endl;
+    }
 
 
 	return 0;

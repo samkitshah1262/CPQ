@@ -45,6 +45,13 @@ const int M = 1e9+7;
 
 void solve(){
 	int i,n,x,y,a,b,c,sam=0;
+    cin>>n>>x>>y;
+    if(n==7 || x==7 || y==7){
+        cout<<"YES"<<endl;
+    }
+    else{
+        cout<<"NO"<<endl;
+    }
 }
 
 int main(void) {

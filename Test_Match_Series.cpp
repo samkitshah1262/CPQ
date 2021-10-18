@@ -44,7 +44,32 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a,b,c,sam=0;
+	int i,n,x,y,a,b,w=0,l=0,d=0,c,sam=0;
+    //cin>>a>>b>>c>>x>>y
+    //vector<int> v;
+    for(i=0;i<5;i++){
+        cin>>a;
+        if(a==0){
+            d++;
+        }
+        if(a==1){
+            w++;
+        }
+        if(a==2){
+            l++;
+        }
+        //v.push_back(a);
+    }
+    if(w>l){
+        cout<<"INDIA"<<endl;
+    }
+    else if(w==l){
+        cout<<"DRAW"<<endl;
+    }
+    else{
+        cout<<"ENGLAND"<<endl;
+    }
+
 }
 
 int main(void) {

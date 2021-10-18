@@ -27,8 +27,8 @@ using pl = pair<ll, ll>;
 
 
 template<typename U>
-void print(U arr) {
-	for(auto element: arr) {
+void print(U v) {
+	for(auto element: v) {
 		cout << element << " ";
 	}
 	cout << endl;
@@ -45,6 +45,31 @@ const int M = 1e9+7;
 
 void solve(){
 	int i,n,x,y,a,b,c,sam=0;
+    cin>>n>>x;
+    vi v;
+    for(i=1;i<=x;i++){
+        if(x%i==0 && x/i<=n && i<=n){
+            v.pb(i);
+        }
+    }
+//     int low = 0;
+//    int high = v.size() -1;
+//    int mid = (high+low)/2;
+//    int index = -1;
+//    while(low <= high){
+//       mid =( low + high ) / 2;
+//       if(v[mid] <= n){
+//          index = mid;
+//          low = mid+1;
+//       }
+//       else{
+//          high=mid-1;
+//       }
+//    }
+//    c=index+1;
+
+   a=v.size();
+    cout<<abs(a)<<endl;
 }
 
 int main(void) {
@@ -52,10 +77,10 @@ int main(void) {
 	cin.tie(0);
 	
 	ll tt;
-	cin>>tt;
-	while(tt--){
+	// cin>>tt;
+	// while(tt--){
 		solve();
-	}
+	//}
 
 
 
