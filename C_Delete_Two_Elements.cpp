@@ -44,12 +44,34 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
+	long long int i,n,k,x,j,y,a,b,c=0,sam=0;
     cin>>n;
-    
+    // vector<pair<long long int,long long int>>;
+    vl v;
     forn(i,n){
+        cin>>a;
+        v.pb(a);
+        sam=sam+a;
 
     }
+    x=sam/n;
+    k=x*2;
+    sort(all(v));
+    i=0;
+    j=n-1;
+    while(i<j){
+        if(v[i]+v[j]==k){
+            c++;
+            i++;
+        }
+        else if(v[i]+v[j]<k){
+            i++;
+        }
+        else{
+            j--;
+        }
+    }
+    cout<<c<<endl;
 }
 
 int main(void) {
@@ -59,7 +81,8 @@ int main(void) {
 	ll tt;
 	cin>>tt;
 	while(tt--){
-		solve();
+		//cout<<1;
+        solve();
 	}
 
 

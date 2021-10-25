@@ -44,23 +44,40 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
-    cin>>n;
-    
+	int i,n,k,x,y,a,b,c,sam=0;
+    cin>>n>>k;
+    deque<pair<int,int>> v;
     forn(i,n){
-
+        cin>>a;
+        pair<int,int> p;
+        p.F=a;
+        p.S=i+1;
+        v.pb(p);
     }
+    i=0;
+    while(v.size()!=1){
+        if(v[i].F<=k){
+            v.pop_front();
+        }
+        else{
+            v[i].F=v[i].F-k;
+            v.pb(v[i]);
+            v.pop_front();
+        }
+    }
+    cout<<v[0].S;
 }
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
+	// ll tt;
+	// cin>>tt;
+	// while(tt--){
+	// 	solve();
+	// }
+    solve();
 
 
 

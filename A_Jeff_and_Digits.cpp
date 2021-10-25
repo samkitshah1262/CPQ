@@ -44,11 +44,39 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
+	int i,n,x,y,a,b,c,sam=0;
     cin>>n;
-    
+    vi v;
     forn(i,n){
+        cin>>a;
+        if(a==5){
+            sam++;
+        }
+        v.pb(a);
+    }
+    if(sam==n){
+        cout<<-1;
+        return;
+    }
+    if(sam/9==0 && sam!=n){
+        cout<<0;
+        return;
+    }
+    else if(sam/9==0 && sam==n){
+        cout<<-1;
+        return;
+    }
 
+    x=sam/9;
+    vi vf;
+    forn(i,x*9){
+        vf.pb(5);
+    }
+    forn(i,n-sam){
+        vf.pb(0);
+    }
+    forn(i,vf.size()){
+        cout<<vf[i];
     }
 }
 
@@ -56,12 +84,12 @@ int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
-
+	// ll tt;
+	// cin>>tt;
+	// while(tt--){
+	// 	solve();
+	// }
+    solve();
 
 
 	return 0;

@@ -44,24 +44,29 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
-    cin>>n;
-    
-    forn(i,n){
-
+	long long int i,n,x,y,a,b,c,sam=0;
+    //cin>>n;
+    string s;
+    cin>>s;
+    while(s.size()!=1){
+        forn(i,s.size()){
+            sam=sam+int(s[i])-48;
+        }
+        s=to_string(sam);
     }
+    cout<<s[0]-48;
 }
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
-
+	// ll tt;
+	// cin>>tt;
+	// while(tt--){
+	// 	solve();
+	// }
+    solve();
 
 
 	return 0;

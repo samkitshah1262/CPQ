@@ -44,12 +44,10 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
+	long long int i,n,x,y,a,b,c,sam=0;
     cin>>n;
-    
-    forn(i,n){
-
-    }
+    x=(n-2)*(n-1)+1;
+    cout<<x<<endl;
 }
 
 int main(void) {

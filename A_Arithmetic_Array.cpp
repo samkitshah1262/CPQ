@@ -44,11 +44,22 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
+	int i,n,x,y,a,b,c,sam=0;
     cin>>n;
-    
+    //vi v;
     forn(i,n){
-
+        cin>>a;
+        //v.pb(a);
+        sam=sam+a;
+    }
+    if(sam>n){
+        cout<<sam-n<<endl;
+    }
+    else if(sam==n){
+        cout<<0<<endl;
+    }
+    else{
+        cout<<1<<endl;
     }
 }
 

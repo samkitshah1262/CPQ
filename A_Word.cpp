@@ -44,11 +44,29 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
-    cin>>n;
-    
-    forn(i,n){
-
+	int i,n,x,y,a,b,c,sam=0,sam2=0;
+    string s;
+    cin>>s;
+    forn(i,s.size()){
+        if(int(s[i])>=97){  
+            sam++;
+        }
+        else{
+            sam2++;
+        }
+    }
+    if(sam>=sam2){
+        //cout<<1;
+        forn(i,s.size()){
+            cout<<char(tolower(s[i]));
+        }
+        //cout<<transform(s.begin(), s.end(), s.begin(), ::tolower);
+    }
+    else{
+        //cout<<1;
+        forn(i,s.size()){
+            cout<<char(toupper(s[i]));
+        }
     }
 }
 
@@ -56,12 +74,12 @@ int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
-
+	// ll tt;
+	// cin>>tt;
+	// while(tt--){
+	// 	solve();
+	// }
+    solve();
 
 
 	return 0;

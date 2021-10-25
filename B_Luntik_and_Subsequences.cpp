@@ -44,12 +44,49 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
+	long long int i,n,x=0,y,a,b,c,sam=0,zero=0,ans=0;
     cin>>n;
-    
     forn(i,n){
-
+        cin>>a;
+        if(a==1){
+            sam++;
+            ans++;
+        }
+        else if(a==0){
+            zero++;
+        }
     }
+    forn(i,zero){
+        ans=ans*2;
+    }
+    cout<<ans<<endl;
+    // if(zero==0){
+    //     x--;
+    //     cout<<sam<<endl;
+    //     return;
+    // }
+    // else if(sam==1 && zero!=0){
+    //     x--;
+    //     x=x+int(pow(2,zero))+sam;
+    //     cout<<x<<endl;
+    //     return;
+    // }
+    // else if(zero==n){
+    //     x=int(pow(2,zero));
+    //     cout<<x<<endl;
+    //     return;
+    // }
+    // else if(sam==0){
+    //     cout<<0<<endl;
+    //     return;
+    // }
+    // else if(sam>1 && zero>0){
+    //     x=sam*int(pow(2,zero));
+    //     cout<<x<<endl;
+    //     return;
+    // }
+    // x=x+int(pow(2,zero))+sam;
+    // cout<<x<<endl;
 }
 
 int main(void) {

@@ -44,11 +44,31 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
-    cin>>n;
-    
-    forn(i,n){
-
+	long long int i,n,x,y,a,b,c,sam=0;
+    cin>>x>>y;
+    if(x>y){
+        if(x%2==0){
+            a=x*x-y+1;
+            cout<<a<<endl;
+            return;
+        }
+        else{
+            a=(x-1)*(x-1)+y;
+            cout<<a<<endl;
+            return;
+        }
+    }
+    else{
+        if(y%2!=0){
+            a=y*y-x+1;
+            cout<<a<<endl;
+            return;
+        }
+        else{
+            a=(y-1)*(y-1)+x;
+            cout<<a<<endl;
+            return;
+        }
     }
 }
 

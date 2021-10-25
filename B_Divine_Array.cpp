@@ -44,11 +44,42 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
+	int i,k,n,q,x,y,a,b,c,sam=0;
     cin>>n;
-    
+    vi v;
+    vi vcount(2001,0);
     forn(i,n){
-
+        cin>>a;
+        v.pb(a);
+        vcount[a]++;
+    }
+    // vi vx;
+    // vi vk;
+    cin>>q;
+    vi temp=vcount;
+    vi t=v;
+    forn(i,q){
+        cin>>x>>k;
+        // vx.pb(x);
+        //vk.pb(k);
+        //cout<<1;
+        //vi temp2(2001,0);
+ 
+        while(k--){
+            vi temp2(2001,0);
+            forn(j,n){
+                t[j]=temp[t[j]];
+                temp2[t[j]]++;
+            }
+            temp=temp2;
+            temp2.clear();
+        }
+        //cout<<t[x-1]<<endl;
+        //cout<<t.size()<<"-tsize"<<endl;
+        // forn(p,t.size()){
+        //     cout<<t[p]<<endl;
+        // }
+        // break;   
     }
 }
 

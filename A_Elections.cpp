@@ -44,11 +44,45 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
-    cin>>n;
-    
-    forn(i,n){
+	long long int i,n,x,y,a,b,c,sam=0;
+    cin>>a>>b>>c;
+    if(a==b && b==c){
+        cout<<1<<" "<<1<<" "<<1<<endl;
+        return;
+    }
+    if(a>=b && a>=c){
+        if(a==b && a!=c){
+            cout<<1<<" "<<1<<" "<<a-c+1<<endl;
+            return;
+        }
+        else if(a!=b && a==c){
+            cout<<1<<" "<<a-b+1<<" "<<1<<endl;
+            return;
+        }
+        cout<<0<<" "<<a-b+1<<" "<<a-c+1<<endl;
+    }
+    else if(b>=a && b>=c){
+        if(c==b && a!=b){
+            cout<<b-a+1<<" "<<1<<" "<<1<<endl;
+            return;
+        }
+        else if(a==b && b!=c){
+            cout<<1<<" "<<1<<" "<<b-c+1<<endl;
+            return;
+        }
+        cout<<b-a+1<<" "<<0<<" "<<b-c+1<<endl;
+    }
+    else if(c>=a && c>=b){
+        if(c==a && c!=b){
+            cout<<1<<" "<<c-b+1<<" "<<1<<endl;
+            return;
+        }
+        else if(c==b && c!=a){
+            cout<<c-a+1<<" "<<1<<" "<<1<<endl;
+            return;
+        }
 
+        cout<<c-a+1<<" "<<c-b+1<<" "<<0<<endl;
     }
 }
 

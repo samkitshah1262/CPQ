@@ -44,11 +44,27 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
-    cin>>n;
-    
-    forn(i,n){
-
+	long long int k,i,n,x,y,a,b,c,sam=0;
+    cin>>n>>k;
+    if(n%2==0){
+        if(k>n/2){
+            x=k-n/2;
+            cout<<2*x;
+        }
+        else{
+            x=1+2*(k-1);
+            cout<<x;
+        }
+    }
+    else{
+        if(k>(n+1)/2){
+            x=k-(n+1)/2;
+            cout<<2*x;
+        }
+        else{
+            x=1+2*(k-1);
+            cout<<x;
+        }
     }
 }
 
@@ -56,12 +72,12 @@ int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
-
+	// ll tt;
+	// cin>>tt;
+	// while(tt--){
+	// 	solve();
+	// }
+    solve();
 
 
 	return 0;

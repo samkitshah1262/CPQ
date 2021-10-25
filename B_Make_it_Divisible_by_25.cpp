@@ -44,11 +44,11 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
-    cin>>n;
-    
-    forn(i,n){
-
+	int i,n,x,y,a,b,c,sam=0;
+    string s;
+    cin>>s;
+    for(i=s.size()-1;i>=0;i--){
+        if()
     }
 }
 

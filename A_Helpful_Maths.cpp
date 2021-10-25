@@ -44,24 +44,35 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
-    cin>>n;
-    
-    forn(i,n){
-
+	int i,n,x,y,a,b,c,sam=0;
+    string s;
+    cin>>s;
+    vi v;
+    forn(i,s.size()){
+        if(s[i]=='+'){
+            continue;
+        }
+        else{
+            v.pb(int(s[i])-48);
+        }
     }
+    sort(all(v));
+    forn(i,v.size()-1){
+        cout<<v[i]<<"+";
+    }
+    cout<<v[v.size()-1];
 }
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
-
+	// ll tt;
+	// cin>>tt;
+	// while(tt--){
+	// 	
+	// }
+    solve();
 
 
 	return 0;

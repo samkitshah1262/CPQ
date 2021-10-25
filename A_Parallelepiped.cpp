@@ -44,23 +44,24 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
-    cin>>n;
-    
-    forn(i,n){
-
-    }
+	int i,n,x,y,z,a,b,c,sam=0;
+    cin>>x>>y>>z;
+    a=sqrt((x*y)/z);
+    b=sqrt((z*y)/x);
+    c=sqrt((x*z)/y);
+    cout<<(a+b+c)*4;
 }
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
+	// ll tt;
+	// cin>>tt;
+	// while(tt--){
+	// 	solve();
+	// }
+    solve();
 
 
 

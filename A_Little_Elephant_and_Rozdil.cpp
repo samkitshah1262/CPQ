@@ -44,24 +44,40 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
+	long long int i,n,x,y,a,b,c,sam=0;
     cin>>n;
-    
+    vector<pair<long long int,long long int>> v;
     forn(i,n){
-
+        cin>>a;
+        pair<long long int,long long int> p;
+        p.F=a;
+        p.S=i+1;
+        v.pb(p);
     }
+    sort(all(v));
+    // forn(i,n-1){
+    //     if(v[i+1].F==v[i].F){
+    //         cout<<"Still Rozdil";
+    //         return;
+    //     }
+    // }
+    if(v[1].F==v[0].F){
+        cout<<"Still Rozdil";
+        return;
+    }
+    cout<<v[0].S;
 }
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
-
+	// ll tt;
+	// cin>>tt;
+	// while(tt--){
+	// 	solve();
+	// }
+    solve();
 
 
 	return 0;

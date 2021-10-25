@@ -44,12 +44,54 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
+	int i,n,x,y,a,b,c,sam=0,sum1=0,sum0=0;
     cin>>n;
-    
+    vi v0;
+    vi v1;
+    vi sumo;
+    vi sumz;
     forn(i,n){
-
+        cin>>a;
+        //v.pb(a);
+        if(i%2==0){
+            v0.pb(a);
+        }
+        else{
+            v1.pb(a);
+        }
     }
+    sort(v0.begin(),v0.end(), greater<int>());
+    sort(all(v1));
+    b=min(v0.size(),v1.size());
+    vi vf;
+    forn(i,b){
+        vf.pb(v0[i]);
+        sum0=sum0+v0[i];
+        sumz.pb(sum0);
+        vf.pb(v1[i]);
+        sum1=sum1+v1[i];
+        sumo.pb(sum1);
+        cout<<v0[i]<<" "<<v1[i]<<" ";   
+    }
+    if(v0.size()>v1.size()){
+        vf.pb(v0[v0.size()-1]);
+        sumz.pb(sum0+v0[v0.size()-1]);
+        cout<<v0[v0.size()-1]<<endl;
+    }
+    else{
+        cout<<endl;
+    }
+    for(int l=0;l<min(sumz.size(),sumo.size());l++){
+        if(l==0){
+            x=sumz[0]*(sumo[sumo.size()-1-l]);
+            sam=sam+x;
+        }
+        else{
+            x=(sumz[l]-sumz[l-1])*(sumo[sumo.size()-1-l]);
+            sam=sam+x;
+        }
+    }   
+    cout<<sam<<endl;
 }
 
 int main(void) {

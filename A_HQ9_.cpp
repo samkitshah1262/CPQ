@@ -42,27 +42,21 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
-
-void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
-    cin>>n;
-    
-    forn(i,n){
-
-    }
-}
-
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
-
-
+    string s;
+    cin>>s;
+    forn(i,s.size()){
+        //cout<<1;
+        int k=int(s[i]);
+        //cout<<k;
+        if(k==72 || k==81 || k==57){
+            cout<<"YES";
+            return 0;
+        }
+    }
+    cout<<"NO";
 
 	return 0;
 }

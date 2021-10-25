@@ -40,28 +40,41 @@ void setup(string s) {
 	freopen((s+".out").c_str(), "w", stdout);
 }
 
-const int M = 1e9+7;
+const int M = 1e5+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
+	long long int m,i,n,x,y,a,b,c,sam=0,ans=0;
     cin>>n;
-    
+    vl v(M,0);
     forn(i,n){
-
+        cin>>a;
+        v[a]=i+1;
     }
+    vl q;
+    cin>>m;
+    forn(i,m){
+        cin>>b;
+        sam=sam+v[b];
+        ans=ans+n-v[b]+1;
+        
+    }
+    cout<<sam<<" "<<ans;
+    //sort(all(q));
+
+    
 }
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
-
+	// ll tt;
+	// cin>>tt;
+	// while(tt--){
+		
+	// }
+    solve();
 
 
 	return 0;

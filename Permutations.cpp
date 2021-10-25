@@ -42,26 +42,46 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
-
-void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
-    cin>>n;
-    
-    forn(i,n){
-
-    }
-}
-
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
+    int i,x, n, a,b,c=0;
+    cin>>n;
+    vi v;
+    // forn(i,n){
+    //     cin>>a;
+    //     v.pb(a);
+    // }
+    if(n<=5){
+        if(n==1){
+            cout<<1;
+            return 0;
+        }
+        if(n<=3){
+            cout<<"NO SOLUTION";
+            return 0;
+        }
+        else if(n==4){
+            cout<<3<<" "<<1<<" "<<4<<" "<<2;
+            return 0;
+        }
+        else{
+            cout<<4<<" "<<2<<" "<<5<<" "<<3<<" "<<1;
+            return 0;
+        }
+    }
+    if(n%2==0){
+        for(i=1;i<=n/2;i++){
+            cout<<i<<" "<<i+n/2<<" ";
+        }
+    }
+    else{
 
+        for(i=1;i<=n/2;i++){
+            cout<<i<<" "<<i+n/2+1<<" ";
+        }
+        cout<<n/2+1;
+    }
 
 
 	return 0;

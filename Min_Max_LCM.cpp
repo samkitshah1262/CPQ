@@ -42,14 +42,23 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
+long long gcd(long long int a, long long int b)
+{
+  if (b == 0)
+    return a;
+  return gcd(b, a % b);
+}
+ 
+long long lcm(long long int a,long long int b)
+{
+    return (a / gcd(a, b)) * b;
+}
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
-    cin>>n;
-    
-    forn(i,n){
-
-    }
+	long long int i,n,x,y,k,a,b,c,sam=0;
+    cin>>x>>k;
+    y=(x*k)*(x*k-1);
+    cout<<2*x<<" "<<y<<endl;
 }
 
 int main(void) {

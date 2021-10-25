@@ -42,26 +42,21 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
-
-void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
-    cin>>n;
-    
-    forn(i,n){
-
-    }
-}
-
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
-
+    // long long int s;
+    string n,k;
+    cin>>n>>k;
+    vi v;
+    forn(i,n.size()){
+        if(n[i]!=k[i]){
+            cout<<1;
+        }
+        else{
+            cout<<0;
+        }
+    }
 
 
 	return 0;

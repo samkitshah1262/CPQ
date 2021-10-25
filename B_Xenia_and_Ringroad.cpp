@@ -44,24 +44,37 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
-    cin>>n;
-    
-    forn(i,n){
-
+	long long int i,n,x,m,y,a,b,c,sam=0;
+    cin>>n>>m;
+    vl v;
+    forn(i,m){
+        cin>>a;
+        v.pb(a);
     }
+    x=1;
+    forn(i,m){
+        if(v[i]<x){
+            sam=sam+n-x+v[i];
+            x=v[i];
+        }
+        else{
+            sam=sam+v[i]-x;
+            x=v[i];
+        }
+    }
+    cout<<sam;
 }
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
-
+	// ll tt;
+	// cin>>tt;
+	// while(tt--){
+	// 	solve();
+	// }
+    solve();
 
 
 	return 0;

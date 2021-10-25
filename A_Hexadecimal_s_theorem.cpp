@@ -42,25 +42,41 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
+long long int pf(long long int n)
+{
+    double a = n / ((1 + sqrt(5)) / 2.0);
+    return round(a);
+}
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
+	long long int i,n,x,y,a,b,c,sam=0;
+  
     cin>>n;
     
-    forn(i,n){
-
+      if(n==1){
+        cout<<1<<" "<<0<<" "<<0;
+        return;
     }
+    if(n==2){
+        cout<<1<<" "<<1<<" "<<0;
+        return;
+    }
+    x=pf(n);
+    y=pf(x);
+    a=pf(y);
+    cout<<a<<" "<<y<<" "<<y;
 }
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
+	// ll tt;
+	// cin>>tt;
+	// while(tt--){
+	// 	solve();
+	// }
+    solve();
 
 
 

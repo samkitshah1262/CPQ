@@ -44,23 +44,50 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
-    cin>>n;
-    
-    forn(i,n){
-
+	int i,n,k,x,y,a,b,c,j=0;
+    string s;
+    cin>>n>>k>>s;
+    vi v;
+    forn(i,s.size()){
+        if(s[i]=='G'){
+            v.pb(0);
+        }
+        else{
+            v.pb(1);
+        }
     }
+    forn(i,k){
+        while(j<s.size()-1){
+            if(v[j]>v[j+1]){
+                swap(v[j],v[j+1]);
+                j++;
+            }
+            j++;
+        }
+        j=0;
+    }
+    forn(i,v.size()){
+        // cout<<v[i]<<" ";
+        if(v[i]==0){
+            cout<<'G';
+        }
+        else{
+            cout<<'B';
+        }
+    }
+    
 }
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
+	// ll tt;
+	// cin>>tt;
+	// while(tt--){
+	// 
+    solve();
+	// }
 
 
 

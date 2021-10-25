@@ -44,11 +44,14 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a,b,c,sam=0;
+	long long int i,n,x,y,a,b,c,sam=0;
     cin>>n>>x;
-    vi v;
+    vl v;
     for(i=1;i<=x;i++){
-        if(x%i==0 && x/i<=n && i<=n){
+        if(i>n){
+			break;
+		}
+		if(x%i==0 && x/i<=n && i<=n){
             v.pb(i);
         }
     }

@@ -42,27 +42,25 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
-
-void solve(){
-	int i,n,x,y,a=0,b=0,c=0,sam=0;
-    cin>>n;
-    
-    forn(i,n){
-
-    }
-}
-
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
+    int n;
+    //int n;
+    cin>>n;
+    string s;
+    n=n+1;
+    while(true){
+        s=to_string(n);
+        if(s[0]!=s[1] && s[0]!=s[2] && s[0]!=s[3] && s[1]!=s[2] && s[1]!=s[3] && s[2]!=s[3]){
+            cout<<n;
+            break;
+        }
+        else{
+            n++;
+        }
 
-
+    }
 
 	return 0;
 }
