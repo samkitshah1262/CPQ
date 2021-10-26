@@ -45,11 +45,49 @@ const int M = 1e9+7;
 
 void solve(){
 	int i,n,x,y,a,b,c,sam=0;
-    string s,samkit;
+    string s;
     cin>>s;
-    samkit=s;
-    reverse(s.begin(),s.end());
-    cout<<samkit+s;
+    forn(i,s.size()){
+        if(s[i]!='1' && s[i]!='4'){
+            cout<<"NO";
+            return;
+        }
+        if(i<2){
+            if(s[0]=='4'){
+                //cout<<1;
+                cout<<"NO";
+                return;
+            }
+            if(s[1]=='4'){
+                if(s[0]=='1'){
+                    continue;
+                }
+                else{
+                    //cout<<1;
+                    cout<<"NO";
+                    return;
+                }
+            }
+            
+        }
+        if(s[i]=='1'){
+            continue;
+        }
+        else{
+            if(s[i-1]=='1'){
+                continue;
+            }
+            else if(s[i-1]=='4' && s[i-2]=='1'){
+                continue;
+            }
+            else{
+                //cout<<1;
+                cout<<"NO";
+                return;
+            }
+        }
+    }
+    cout<<"YES";
 }
 
 int main(void) {
