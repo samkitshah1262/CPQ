@@ -42,43 +42,56 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
-// int cutrib(int n,vi v){
-
-// }
 
 void solve(){
-	int i,n,x,y,a,b,c,sam=0;
-    cin>>n>>a>>b>>c;
-	vi v(4001,-1);
-	v[0]=0;
-	fora(i,1,n+1){
-		int h=-1;
-		if(i-a>=0 && v[i-a]!=-1){
-			h=max(h,v[i-a]+1);
-		}
-		if(i-b>=0 && v[i-b]!=-1){
-			h=max(h,v[i-b]+1);
-		}
-		if(i-c>=0 && v[i-c]!=-1){
-			h=max(h,v[i-c]+1);
-		}
-		v[i]=h;
+	int i,n,x,y,a,b,c=0,sam=0;
+    cin>>n;
+    vi v;
+    vi v2;
+    forn(i,n){
+        cin>>a;
+        v.pb(a);
+        v2.pb(a);
+    }
+    sort(all(v2));
+    x=v2[v2.size()-1];
+    forn(i,n-1){
 
-	}
-	cout<<v[n];
-	
+        if(v[i]!=v[i+1]){
+            sam=1;
+
+            break;
+        }
+    }
+    if(sam==0){
+        cout<<0<<endl;
+        return;
+    }
+    else{
+        forn(i,n){
+            if(v[i]==x){
+                c=i;
+            }
+        }
+        if(c==n-1){
+            cout<<1<<endl;
+        }
+        else{
+            cout<<2<<endl;
+        }
+    }
+
 }
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	// ll tt;
-	// cin>>tt;
-	// while(tt--){
-	// 	solve();
-	// }
-    solve();
+	ll tt;
+	cin>>tt;
+	while(tt--){
+		solve();
+	}
 
 
 

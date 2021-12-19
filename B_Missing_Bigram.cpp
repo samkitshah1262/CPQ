@@ -42,43 +42,62 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
-// int cutrib(int n,vi v){
-
-// }
 
 void solve(){
 	int i,n,x,y,a,b,c,sam=0;
-    cin>>n>>a>>b>>c;
-	vi v(4001,-1);
-	v[0]=0;
-	fora(i,1,n+1){
-		int h=-1;
-		if(i-a>=0 && v[i-a]!=-1){
-			h=max(h,v[i-a]+1);
-		}
-		if(i-b>=0 && v[i-b]!=-1){
-			h=max(h,v[i-b]+1);
-		}
-		if(i-c>=0 && v[i-c]!=-1){
-			h=max(h,v[i-c]+1);
-		}
-		v[i]=h;
+    string s,s2;
+    char ch;
+    cin>>n;
+    forn(i,n-2){
+        cin>>s;
+        if(i==0){
+            cout<<s;
+            s2=s;
+            sam++;
+            sam++;
+        }
+        else{
+            if(s[0]!=s2[1]){
+                cout<<s;
+                sam++;
+                sam++;
+                s2=s;
+            }
+            else{
+                cout<<s[1];
+                s2=s;
+                sam++;
+            }
+        }
+        // cin>>ch;
+        // // if(i%2==0){
+        // //     cout<<ch;
+        // // }
+        // if(i==1 || i==2){
+        //     cout<<ch;
+        // }
+        // else if(i%2==0){
+        //     cout<<ch;
+        // }
+    }
+    if(sam!=n){
+        cout<<'a'<<endl;
+        return;
+    }
+    cout<<endl;
+    //cout<<'a'<<endl;
 
-	}
-	cout<<v[n];
-	
 }
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	// ll tt;
-	// cin>>tt;
-	// while(tt--){
-	// 	solve();
-	// }
-    solve();
+	ll tt;
+	cin>>tt;
+	while(tt--){
+		solve();
+	}
 
 
 

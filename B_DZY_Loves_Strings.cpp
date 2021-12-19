@@ -42,31 +42,47 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
-// int cutrib(int n,vi v){
-
-// }
 
 void solve(){
-	int i,n,x,y,a,b,c,sam=0;
-    cin>>n>>a>>b>>c;
-	vi v(4001,-1);
-	v[0]=0;
-	fora(i,1,n+1){
-		int h=-1;
-		if(i-a>=0 && v[i-a]!=-1){
-			h=max(h,v[i-a]+1);
-		}
-		if(i-b>=0 && v[i-b]!=-1){
-			h=max(h,v[i-b]+1);
-		}
-		if(i-c>=0 && v[i-c]!=-1){
-			h=max(h,v[i-c]+1);
-		}
-		v[i]=h;
-
-	}
-	cout<<v[n];
-	
+	int i,n,x,y=-1,a,b,c,sam=0;
+    string s;
+    cin>>s;
+    vi va;
+    vi vb;
+    cin>>n;
+    forn(i,26){
+        cin>>a;
+        va.pb(a);
+        vb.pb(a);
+    }
+    sort(all(vb));
+    vi vc;
+    forn(i,s.size()){
+        vc.pb(va[int(s[i])-97]);
+    }
+    x=vb[vb.size()-1];
+    forn(i,vc.size()){
+        if(vc[i]>x){
+            y=i;
+        }
+    }
+    if(y==-1){
+        forn(i,vc.size()){
+            sam=sam+(i+1)*vc[i];
+        }
+        fora(j,vc.size(),vc.size()+n){
+            sam=sam+(j+1)*x;
+        }
+    }
+    else{
+        forn(i,y+1){
+            sam=sam+(i+1)*vc[i];
+        }
+        fora(j,y+1,y+1+n){
+            sam=sam+(j+1)*x;
+        }
+    }
+    cout<<sam;
 }
 
 int main(void) {
@@ -78,8 +94,8 @@ int main(void) {
 	// while(tt--){
 	// 	solve();
 	// }
-    solve();
 
+    solve();
 
 
 	return 0;

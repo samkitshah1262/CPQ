@@ -42,43 +42,56 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
-// int cutrib(int n,vi v){
-
-// }
+pair <int,int> pot(int k){
+    int sam=0;
+    pi p;
+    while(k%2==0){
+        sam++;
+        k=k/2;
+    }
+    p.F=k;
+    p.S=sam;
+    return p;
+}
 
 void solve(){
-	int i,n,x,y,a,b,c,sam=0;
-    cin>>n>>a>>b>>c;
-	vi v(4001,-1);
-	v[0]=0;
-	fora(i,1,n+1){
-		int h=-1;
-		if(i-a>=0 && v[i-a]!=-1){
-			h=max(h,v[i-a]+1);
-		}
-		if(i-b>=0 && v[i-b]!=-1){
-			h=max(h,v[i-b]+1);
-		}
-		if(i-c>=0 && v[i-c]!=-1){
-			h=max(h,v[i-c]+1);
-		}
-		v[i]=h;
-
-	}
-	cout<<v[n];
-	
+	long long int i,n,x,y,a,b,c=0,sam=0;
+    cin>>n;
+    vi v;
+    vector<pair<int,int>> vp;
+    forn(i,n){
+        cin>>a;
+        v.pb(a);
+        //c=c+a;
+        pi p;
+        p=pot(a);
+        vp.pb(p);
+        //sam=sam+pot(a);
+        //cout<<pot(a)<<" a"<<endl;
+    }
+    sort(all(vp));
+    forn(i,vp.size()){
+        sam=sam+vp[i].S;
+        c=c+vp[i].F;
+    }
+    c=c-vp[vp.size()-1].F;
+    x=vp[vp.size()-1].F*pow(2,sam);
+    cout<<x+c<<endl;
+    // sort(all(v));
+    // y=pot(v[v.size()-1]);
+    // x=(v[v.size()-1]*pow(2,sam-y))+c-v[v.size()-1];
+    // cout<<x<<endl;
 }
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	// ll tt;
-	// cin>>tt;
-	// while(tt--){
-	// 	solve();
-	// }
-    solve();
+	ll tt;
+	cin>>tt;
+	while(tt--){
+		solve();
+	}
 
 
 

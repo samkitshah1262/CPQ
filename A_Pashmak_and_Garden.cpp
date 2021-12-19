@@ -42,31 +42,34 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
-// int cutrib(int n,vi v){
-
-// }
 
 void solve(){
 	int i,n,x,y,a,b,c,sam=0;
-    cin>>n>>a>>b>>c;
-	vi v(4001,-1);
-	v[0]=0;
-	fora(i,1,n+1){
-		int h=-1;
-		if(i-a>=0 && v[i-a]!=-1){
-			h=max(h,v[i-a]+1);
-		}
-		if(i-b>=0 && v[i-b]!=-1){
-			h=max(h,v[i-b]+1);
-		}
-		if(i-c>=0 && v[i-c]!=-1){
-			h=max(h,v[i-c]+1);
-		}
-		v[i]=h;
+    cin>>a>>b>>x>>y;
+    if(abs(a-x)!=abs(b-y) && a-x!=0 && b-y!=0){
+        cout<<-1;
+        return;
+    }
+    if(abs(a-x)==abs(b-y)){
+        // if(x>a ){
+        // cout<<min(a,x)+abs(a-x)<<" "<<max(b,y)<<" "<<min(a,x)<<" "<<min(b,y);
+        // return;
+        // }
+        // else if(x<a){
+        //     cout<<min(a,x)+abs(a-x)<<" "<<min(b,y)<<" "<<min(a,x)<<" "<<max(b,y);
+        //     return;
+        // }
+        cout<<a<<" "<<y<<" "<<x<<" "<<b;
+    }
+    if(a-x==0){
+        cout<<a+abs(b-y)<<" "<<b<<" "<<x+abs(b-y)<<" "<<y;
+        return;
+    }
+    if(b-y==0){
+        cout<<a<<" "<<b+abs(a-x)<<" "<<x<<" "<<y+abs(a-x);
+        return;
+    }
 
-	}
-	cout<<v[n];
-	
 }
 
 int main(void) {
@@ -78,8 +81,8 @@ int main(void) {
 	// while(tt--){
 	// 	solve();
 	// }
-    solve();
 
+    solve();
 
 
 	return 0;

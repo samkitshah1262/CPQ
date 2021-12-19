@@ -42,31 +42,56 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
-// int cutrib(int n,vi v){
-
-// }
 
 void solve(){
-	int i,n,x,y,a,b,c,sam=0;
-    cin>>n>>a>>b>>c;
-	vi v(4001,-1);
-	v[0]=0;
-	fora(i,1,n+1){
-		int h=-1;
-		if(i-a>=0 && v[i-a]!=-1){
-			h=max(h,v[i-a]+1);
-		}
-		if(i-b>=0 && v[i-b]!=-1){
-			h=max(h,v[i-b]+1);
-		}
-		if(i-c>=0 && v[i-c]!=-1){
-			h=max(h,v[i-c]+1);
-		}
-		v[i]=h;
-
-	}
-	cout<<v[n];
-	
+	int i,n=0,e=0,w=0,s=0,x,y,a,b,c,sam=0;
+    cin>>c;
+    cin>>x>>y>>a>>b;
+    char ch;
+    if(a-x<0){
+        w=w+x-a;
+    }
+    else{
+        e=e+a-x;
+    }
+    if(b-y<0){
+        s=s+y-b;
+    }
+    else{
+        n=n+b-y;
+    }
+    forn(i,c){
+        cin>>ch;
+        if(n==0 && s==0 && e==0 && w==0){
+            break;
+        }
+        if(ch=='N'){
+            if(n!=0){
+                n--;
+            }
+        }
+        else if(ch=='E'){
+            if(e!=0){
+                e--;
+            }
+        }
+        else if(ch=='W'){
+            if(w!=0){
+                w--;
+            }
+        }
+        else if(ch=='S'){
+            if(s!=0){
+                s--;
+            }
+        }
+        sam++;
+    }
+    if(n!=0 || s!=0 || e!=0 || w!=0){
+        cout<<-1;
+        return;
+    }
+    cout<<sam;
 }
 
 int main(void) {

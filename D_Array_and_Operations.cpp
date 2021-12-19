@@ -42,43 +42,56 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
-// int cutrib(int n,vi v){
-
-// }
 
 void solve(){
-	int i,n,x,y,a,b,c,sam=0;
-    cin>>n>>a>>b>>c;
-	vi v(4001,-1);
-	v[0]=0;
-	fora(i,1,n+1){
-		int h=-1;
-		if(i-a>=0 && v[i-a]!=-1){
-			h=max(h,v[i-a]+1);
-		}
-		if(i-b>=0 && v[i-b]!=-1){
-			h=max(h,v[i-b]+1);
-		}
-		if(i-c>=0 && v[i-c]!=-1){
-			h=max(h,v[i-c]+1);
-		}
-		v[i]=h;
-
-	}
-	cout<<v[n];
-	
+	long long int i,n,x,y,a,b,c,sam=0;
+    deque <long long int> v;
+    cin>>n>>x;
+    forn(i,n){
+        cin>>a;
+        v.pb(a);
+    }
+    sort(all(v));
+    // while(x--){
+    //     if(floor(v[0]/v[v.size()-1])>floor(v[v.size()-2]/v[v.size()-1])){
+    //     sam=sam+floor(v[0]/v[v.size()-1]);
+    //     v.pop_back();
+    //     v.pop_front();
+    //     }
+    //     else{
+    //     sam=sam+floor(v[v.size()-2]/v[v.size()-1]);
+    //     v.pop_back();
+    //     v.pop_back();
+    //     }
+    // }
+    int j=0;
+    for(i=n-2*x;i<n-x;i++){
+        sam=sam+floor(v[i]/v[i+x]);
+        j++;
+        //x--;
+    }
+    //cout<<sam<<"sam"<<endl;
+    while(x--){
+        v.pop_back();
+        v.pop_back();
+    }
+    forn(i,v.size()){
+        sam=sam+v[i];
+    }
+    //cout<<sam<<"sam"<<endl;
+    
+    cout<<sam<<endl;
 }
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	// ll tt;
-	// cin>>tt;
-	// while(tt--){
-	// 	solve();
-	// }
-    solve();
+	ll tt;
+	cin>>tt;
+	while(tt--){
+		solve();
+	}
 
 
 

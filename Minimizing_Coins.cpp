@@ -42,31 +42,37 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
-// int cutrib(int n,vi v){
-
-// }
 
 void solve(){
-	int i,n,x,y,a,b,c,sam=0;
-    cin>>n>>a>>b>>c;
-	vi v(4001,-1);
-	v[0]=0;
-	fora(i,1,n+1){
-		int h=-1;
-		if(i-a>=0 && v[i-a]!=-1){
-			h=max(h,v[i-a]+1);
-		}
-		if(i-b>=0 && v[i-b]!=-1){
-			h=max(h,v[i-b]+1);
-		}
-		if(i-c>=0 && v[i-c]!=-1){
-			h=max(h,v[i-c]+1);
-		}
-		v[i]=h;
+	long long int i,n,x,y,a,b,c,sam=0;
+    cin>>n>>x;
+    vl cost;
+    //dp[]
+    forn(i,n){
+        cin>>a;
+        cost.pb(a);
+    }
+    vi dp(x+1,INT_MAX);
+    dp[0]=0;
+    fora(i,1,x+1){
+        //y=0;
+        forn(j,n){
+            if(cost[j]<=i){
+                y=dp[i-cost[j]];
+                if(y!=INT_MAX && y+1<dp[i]){
+                    dp[i]=y+1;
+                }
+            }
+        }
+    }
+    if(dp[x]==INT_MAX){
+        cout<<-1;
+        return;
+    }
+    cout<<dp[x];
 
-	}
-	cout<<v[n];
-	
+
+
 }
 
 int main(void) {

@@ -24,7 +24,7 @@ using pl = pair<ll, ll>;
 #define inpl(e) ll e; cin >> e
 #define inps(e) string e; cin >> e
 #define T int tt; cin >> tt; while(tt--)
-#define int long long int
+
 
 template<typename U>
 void print(U arr) {
@@ -44,7 +44,87 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,k,y,a,b,c,sam=0;
+	long long int i,n,x,y,k,a,b,c=0,sam=0;
+    cin>>n>>k;
+    deque<ll> vp;
+	deque<ll> vn;
+    forn(i,n){
+        cin>>a;
+        //v.pb(abs(a));
+		if(a<0){
+			vn.pb(abs(a));
+		}
+		else{
+			vp.pb(a);
+		}
+    }
+    sort(all(vp));
+	sort(all(vn));
+	if(vp[vp.size()-1]>vn[vn.size()-1]){
+		forn(i,vn.size()){
+			if((i+1)%k==0){
+				c=c+vn[i];
+				c=2*c;
+			}
+			else{
+				c=c+vn[i];
+			}
+		}
+		c=2*c;
+		forn(i,vp.size()){
+			if(vp.size()-(i+1)==k){
+				c=c+vp[i];
+				a=i;
+				break;
+			}
+			if((i+1)%k==0){
+				c=c+vp[i];
+				c=2*c;
+			}
+			else{
+				c=c+vp[i];
+			}
+		}
+		c=c*2;
+		for(i=a+1;i<vp.size();i++){
+			c=c+vp[i];
+		}
+	}
+	else{
+		deque<ll> vcopy;
+		vcopy=vp;
+		vp=vn;
+		vn=vcopy;
+		forn(i,vn.size()){
+			if((i+1)%k==0){
+				c=c+vn[i];
+				c=2*c;
+			}
+			else{
+				c=c+vn[i];
+			}
+		}
+		c=2*c;
+		forn(i,vp.size()){
+			if(vp.size()-(i+1)==k){
+				c=c+vp[i];
+				a=i;
+				break;
+			}
+			if((i+1)%k==0){
+				c=c+vp[i];
+				c=2*c;
+			}
+			else{
+				c=c+vp[i];
+			}
+		}
+		c=c*2;
+		for(i=a+1;i<vp.size();i++){
+			c=c+vp[i];
+		}
+	}
+	cout<<c<<endl;
 }
 
 int main(void) {
@@ -57,7 +137,7 @@ int main(void) {
 		solve();
 	}
 
-	solve();
+
 
 	return 0;
 }

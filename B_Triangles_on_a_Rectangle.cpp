@@ -42,43 +42,74 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
-// int cutrib(int n,vi v){
-
-// }
 
 void solve(){
-	int i,n,x,y,a,b,c,sam=0;
-    cin>>n>>a>>b>>c;
-	vi v(4001,-1);
-	v[0]=0;
-	fora(i,1,n+1){
-		int h=-1;
-		if(i-a>=0 && v[i-a]!=-1){
-			h=max(h,v[i-a]+1);
-		}
-		if(i-b>=0 && v[i-b]!=-1){
-			h=max(h,v[i-b]+1);
-		}
-		if(i-c>=0 && v[i-c]!=-1){
-			h=max(h,v[i-c]+1);
-		}
-		v[i]=h;
-
-	}
-	cout<<v[n];
-	
+	long long int i,n,x,y,a,b,in,c,tempx1,tempx2,tempy,sam=0,p1,p2,p3,p4,p5,p6;
+    cin>>x>>y;
+    cin>>a;
+    //vi v;
+    forn(i,a){
+        cin>>in;
+        if(i==0){
+            tempx1=in;
+        }
+        if(i==a-1){
+            tempx2=in;
+        }
+    }
+    p1=tempx2-tempx1;
+    cin>>b;
+    forn(i,b){
+        cin>>in;
+        if(i==0){
+            tempx1=in;
+        }
+        if(i==b-1){
+            tempx2=in;
+        }
+    }
+    p2=tempx2-tempx1;
+    cin>>a;
+    forn(i,a){
+        cin>>in;
+        if(i==0){
+            tempx1=in;
+        }
+        if(i==a-1){
+            tempx2=in;
+        }
+    }
+    p3=tempx2-tempx1;
+    cin>>b;
+    forn(i,b){
+        cin>>in;
+        if(i==0){
+            tempx1=in;
+        }
+        if(i==b-1){
+            tempx2=in;
+        }
+    }
+    p4=tempx2-tempx1;
+    p1=p1*y;
+    p2=p2*y;
+    p3=p3*x;
+    p4=p4*x;
+    sam=max(p1,p2);
+    sam=max(sam,p3);
+    sam=max(sam,p4);
+    cout<<sam<<endl;
 }
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	// ll tt;
-	// cin>>tt;
-	// while(tt--){
-	// 	solve();
-	// }
-    solve();
+	ll tt;
+	cin>>tt;
+	while(tt--){
+		solve();
+	}
 
 
 

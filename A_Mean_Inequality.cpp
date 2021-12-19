@@ -24,7 +24,7 @@ using pl = pair<ll, ll>;
 #define inpl(e) ll e; cin >> e
 #define inps(e) string e; cin >> e
 #define T int tt; cin >> tt; while(tt--)
-
+#define rep(x,start,end) for(auto x=(start)-((start)>(end));x!=(end)-((start)>(end));((start)<(end)?x++:x--))
 
 template<typename U>
 void print(U arr) {
@@ -42,43 +42,44 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
-// int cutrib(int n,vi v){
-
-// }
+int n;
+int arr[55];
 
 void solve(){
-	int i,n,x,y,a,b,c,sam=0;
-    cin>>n>>a>>b>>c;
-	vi v(4001,-1);
-	v[0]=0;
-	fora(i,1,n+1){
-		int h=-1;
-		if(i-a>=0 && v[i-a]!=-1){
-			h=max(h,v[i-a]+1);
-		}
-		if(i-b>=0 && v[i-b]!=-1){
-			h=max(h,v[i-b]+1);
-		}
-		if(i-c>=0 && v[i-c]!=-1){
-			h=max(h,v[i-c]+1);
-		}
-		v[i]=h;
-
-	}
-	cout<<v[n];
-	
+	//long long int i,n,x,y,a,b,c,sam=0;
+    // cin>>n;
+    // vi v;
+    // n=2*n;
+    // forn(i,n){
+    //     cin>>a;
+    //     v.pb(a);
+    // }
+    // sort(all(v));
+    // for(i=0;i<n;i=i+2){
+    //     swap(v[i],v[i+1]);
+    // }
+    // forn(i,n){
+    //     cout<<v[i]<<" ";
+    // }
+    // cout<<endl;
+    cin>>n;
+		rep(x,0,2*n) cin>>arr[x];
+		
+		sort(arr,arr+2*n);
+		
+		rep(x,0,n) cout<<arr[x]<<" "<<arr[x+n]<<" ";
+		cout<<endl;
 }
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	// ll tt;
-	// cin>>tt;
-	// while(tt--){
-	// 	solve();
-	// }
-    solve();
+	ll tt;
+	cin>>tt;
+	while(tt--){
+		solve();
+	}
 
 
 

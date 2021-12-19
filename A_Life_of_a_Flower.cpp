@@ -42,43 +42,62 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
-// int cutrib(int n,vi v){
-
-// }
 
 void solve(){
-	int i,n,x,y,a,b,c,sam=0;
-    cin>>n>>a>>b>>c;
-	vi v(4001,-1);
-	v[0]=0;
-	fora(i,1,n+1){
-		int h=-1;
-		if(i-a>=0 && v[i-a]!=-1){
-			h=max(h,v[i-a]+1);
-		}
-		if(i-b>=0 && v[i-b]!=-1){
-			h=max(h,v[i-b]+1);
-		}
-		if(i-c>=0 && v[i-c]!=-1){
-			h=max(h,v[i-c]+1);
-		}
-		v[i]=h;
+	int i,n,x,y,a,b,c0=0,c1=0,sam=1;
+    cin>>n;
+    vi v;
+    forn(i,n){
+        cin>>a;
+        v.pb(a);
+    }
+    forn(i,n){
+        if(v[i]==1){
+            c1++;
+            c0=0;
+        }
+        else if(v[i]==0){
+            c0++;
+            c1=0;
+        }
+        if(c0==2){
+            cout<<-1<<endl;
+            return;   
+        }
+        if(c1>=2){
+            sam=sam+5;
+        }
+        else if(c1==1){
+            sam++;
+        }
 
-	}
-	cout<<v[n];
-	
+
+        // if(i==0 && v[i]==1){
+        //     sam++;
+        // }
+        // if(v[i]==0 && v[i+1]==0){
+        //     cout<<-1<<endl;
+        //     return;
+        // }
+        // if(v[i]==1 && v[i+1]==1){
+        //     sam=sam+5;
+        // }
+        // else if(v[i]==0 && v[i+1]==1){
+        //     sam++;
+        // }
+    }
+    cout<<sam<<endl;
 }
 
 int main(void) {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
-	// ll tt;
-	// cin>>tt;
-	// while(tt--){
-	// 	solve();
-	// }
-    solve();
+	ll tt;
+	cin>>tt;
+	while(tt--){
+		solve();
+	}
 
 
 

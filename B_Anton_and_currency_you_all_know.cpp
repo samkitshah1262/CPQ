@@ -42,31 +42,41 @@ void setup(string s) {
 
 const int M = 1e9+7;
 
-// int cutrib(int n,vi v){
-
-// }
 
 void solve(){
-	int i,n,x,y,a,b,c,sam=0;
-    cin>>n>>a>>b>>c;
-	vi v(4001,-1);
-	v[0]=0;
-	fora(i,1,n+1){
-		int h=-1;
-		if(i-a>=0 && v[i-a]!=-1){
-			h=max(h,v[i-a]+1);
-		}
-		if(i-b>=0 && v[i-b]!=-1){
-			h=max(h,v[i-b]+1);
-		}
-		if(i-c>=0 && v[i-c]!=-1){
-			h=max(h,v[i-c]+1);
-		}
-		v[i]=h;
+	int i,n,x,y,a,b=-1,c=-1,sam=0;
+    string s;
+    cin>>s;
+    vector<char> vc;
+    int flag=int(s[s.size()-1]);
+    x=flag;
 
-	}
-	cout<<v[n];
-	
+    forn(i,s.size()){
+        vc.pb(s[i]);
+        if(int(s[i])>=flag && (int(s[i])-48)%2==0){
+            flag=int(s[i]);
+            c=i;
+        }
+        else if(int(s[i])<flag && (int(s[i])-48)%2==0 && b==-1){
+            b=i;
+        }
+        else{
+            sam++;
+        }
+    }
+    if(sam==s.size()){
+        cout<<-1;
+        return;
+    }
+    if(c!=-1){
+        swap(vc[c],vc[s.size()-1]);
+    }
+    else if(b!=-1 && c==-1){
+        swap(vc[b],vc[s.size()-1]);
+    }
+    forn(i,s.size()){
+        cout<<vc[i];
+    }
 }
 
 int main(void) {
@@ -78,8 +88,8 @@ int main(void) {
 	// while(tt--){
 	// 	solve();
 	// }
-    solve();
 
+    solve();
 
 
 	return 0;
