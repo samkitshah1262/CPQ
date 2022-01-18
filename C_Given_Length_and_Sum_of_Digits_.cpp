@@ -1,97 +1,123 @@
-#include <bits/stdc++.h>
+/*
+ * =====================================================================================
+ *
+ *       Filename:  a.cc
+ *        Version:  1.0
+ *        Created:  2014年11月17日 23时53分26秒
+ *       Revision:  none
+ *       Compiler:  GNU C++
+ *
+ *                     I  don't  want  to  be  alone.
+ *
+ * =====================================================================================
+ */
+#include <set>
+#include <map>
+#include <list>
+#include <queue>
+#include <stack>
+#include <cmath>
+#include <string>
+#include <cstdio>
+#include <vector>
+#include <cstdlib>
+#include <cstring>
+#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
-using ll = long long;
-using vi = vector<int>;
-using vvi = vector<vector<int>>;
-using vl = vector<ll>;
-using vvl = vector<vector<ll>>;
-using pi = pair<int, int>;
-using pl = pair<ll, ll>;
+#define PB              push_back
+#define SIZE(x)         (int)x.size()
+#define clr(x,y)        memset(x,y,sizeof(x))
+#define MP(x,y)         make_pair(x,y)
+#define RS(n)           scanf ("%s", n)
+#define ALL(t)          (t).begin(),(t).end()
+#define FOR(i,n,m)      for (int i = n; i <= m; i ++)
+#define ROF(i,n,m)      for (int i = n; i >= m; i --)
+#define IT              iterator
+#define FF              first
+#define SS              second
 
+typedef long long               ll;
+typedef unsigned int            uint;
+typedef unsigned long long      ull;
+typedef vector<int>             vint;
+typedef vector<string>          vstring;
+typedef pair<int, int>          PII;
 
-#define all(x) begin(x), end(x)
-#define rall(x) rbegin(x), rend(x)
-#define pb push_back
-#define mp make_pair
-#define F first
-#define S second
-#define endl '\n'
-#define forn(i, n) for(ll i = 0; i < n; i++)
-#define fora(i, a, n) for(ll i = a; i < n; i++)
-#define inp(e) int e; cin >> e
-#define inpl(e) ll e; cin >> e
-#define inps(e) string e; cin >> e
-#define T int tt; cin >> tt; while(tt--)
+void RI (int& x){
+	x = 0;
+	char c = getchar ();
+	while (!(c>='0' && c<='9' || c=='-'))     c = getchar ();
+	bool flag = 1;
+	if (c == '-'){
+		flag = 0;
+		c = getchar ();
+	}
+	while (c >= '0' && c <= '9'){
+		x = x * 10 + c - '0';
+		c = getchar ();
+	}
+	if (!flag)      x = -x;
+}
+void RII (int& x, int& y){RI (x), RI (y);}
+void RIII (int& x, int& y, int& z){RI (x), RI (y), RI (z);}
+void RC (char& c){
+	c = getchar ();
+	while (c == ' '||c == '\n')     c = getchar ();
+}
+char RC (){
+	char c = getchar ();
+	while (c == ' '||c == '\n')     c = getchar ();
+	return c;
+}
 
+/**************************************END define***************************************/
 
-template<typename U>
-void print(U arr) {
-	for(auto element: arr) {
-		cout << element << " ";
+const ll mod = 1e9+7;
+const ll LINF = 1e18;
+const int INF = 1e9;
+const double EPS = 1e-8;
+
+int a[105], b[105];
+
+int main (){
+	int m, s;
+	cin >> m >> s;
+	if (s == 0 && m > 1 || m*9 < s){
+		puts ("-1 -1");
+		return 0;
+	}
+	int t = s;
+	FOR (i, 1, m){
+		if (t >= 9){
+			a[i] = 9;
+			t -= 9;
+		}else{
+			a[i] = t;
+			break;
+		}
+	}
+	s --;
+	b[1] = 1;
+	ROF (i, m, 1){
+		if (s >= 9){
+			s -= 9;
+			b[i] = 9;
+		}else{
+			b[i] += s;
+			break;
+		}
+	}
+	FOR (i, 1, m){
+		cout << b[i];
+	}
+	cout << " ";
+	FOR (i, 1, m){
+		cout << a[i];
 	}
 	cout << endl;
 }
 
-// read and write into files, rather than standard i/o
-void setup(string s) {
-	freopen((s+".in").c_str(), "r", stdin);
-	freopen((s+".out").c_str(), "w", stdout);
-}
 
-const int M = 1e9+7;
-
-// int dp(int n){
-//     int d_p[n+1][10];
-//     for(int i=0;i<n+1;i++){
-//         for(int j=0;j<10;j++){
-
-//         }
-//     }
-// }
-
-int main(void) {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-    
-    int s,n,i,j,x,y,a,b,c;
-    cin>>n>>s;
-	vi v;
-	if(s==0){
-		cout<<-1<<" "<<-1;
-		return 0;
-	}
-    while(true){
-		if(n==0){
-			break;
-		}
-		if(s<9){
-			break;
-		}
-		v.pb(9);
-		n--;
-		s=s-9;
-	}
-	if(n==0 && s>0){
-		cout<<-1<<" "<<-1;
-		return 0;
-	}
-	else if(n>0 && s>0){
-		x=s-9*v.size();
-		v.pb(x);
-		n--;
-		while(n--){
-			v.pb(0);
-		}
-	}
-	for(i=0;i<v.size();i++){
-		cout<<v[v.size()-1-i];
-	}
-	cout<<" ";
-		for(i=0;i<v.size();i++){
-		cout<<v[i];
-	}
-
-	return 0;
-}

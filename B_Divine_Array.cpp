@@ -1,99 +1,44 @@
-#include <bits/stdc++.h>
-
+#include<bits/stdc++.h>
 using namespace std;
-
-using ll = long long;
-using vi = vector<int>;
-using vvi = vector<vector<int>>;
-using vl = vector<ll>;
-using vvl = vector<vector<ll>>;
-using pi = pair<int, int>;
-using pl = pair<ll, ll>;
-
-
-#define all(x) begin(x), end(x)
-#define rall(x) rbegin(x), rend(x)
-#define pb push_back
-#define mp make_pair
-#define F first
-#define S second
-#define endl '\n'
-#define forn(i, n) for(ll i = 0; i < n; i++)
-#define fora(i, a, n) for(ll i = a; i < n; i++)
-#define inp(e) int e; cin >> e
-#define inpl(e) ll e; cin >> e
-#define inps(e) string e; cin >> e
-#define T int tt; cin >> tt; while(tt--)
-
-
-template<typename U>
-void print(U arr) {
-	for(auto element: arr) {
-		cout << element << " ";
-	}
-	cout << endl;
-}
-
-// read and write into files, rather than standard i/o
-void setup(string s) {
-	freopen((s+".in").c_str(), "r", stdin);
-	freopen((s+".out").c_str(), "w", stdout);
-}
-
-const int M = 1e9+7;
-
-
-void solve(){
-	int i,k,n,q,x,y,a,b,c,sam=0;
-    cin>>n;
-    vi v;
-    vi vcount(2001,0);
-    forn(i,n){
-        cin>>a;
-        v.pb(a);
-        vcount[a]++;
-    }
-    // vi vx;
-    // vi vk;
-    cin>>q;
-    vi temp=vcount;
-    vi t=v;
-    forn(i,q){
-        cin>>x>>k;
-        // vx.pb(x);
-        //vk.pb(k);
-        //cout<<1;
-        //vi temp2(2001,0);
- 
-        while(k--){
-            vi temp2(2001,0);
-            forn(j,n){
-                t[j]=temp[t[j]];
-                temp2[t[j]]++;
-            }
-            temp=temp2;
-            temp2.clear();
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+       
+        int n;
+        cin>>n;
+        int arr[n+1][n];
+        vector<int>v(n+1);
+        fill(v.begin(),v.end(),0);
+        for(int i=0;i<n;i++){
+            cin>>arr[0][i];
+            //cout<<arr[0][i]<<" ";
+            v[arr[0][i]]++;
+            //cout<<v[arr[0][i]]<<" "<<arr[0][i]<<endl;
         }
-        //cout<<t[x-1]<<endl;
-        //cout<<t.size()<<"-tsize"<<endl;
-        // forn(p,t.size()){
-        //     cout<<t[p]<<endl;
-        // }
-        // break;   
+        for(int i=1;i<=n;i++){
+            for(int j=0;j<n;j++){
+                arr[i][j]=v[arr[i-1][j]];
+            }
+            fill(v.begin(),v.end(),0);
+            for(int j=0;j<n;j++){
+                v[arr[i][j]]++;
+            }
+
+        }
+        int q;
+        cin>>q;
+        //cout<<q<<endl;
+        int x,y;
+        while(q--){
+           cin>>x>>y;
+           if(y<=n){
+               cout<<arr[y][x-1]<<endl;
+           }
+           else{
+               cout<<arr[n][x-1]<<endl;
+           }
+        }
+
     }
-}
-
-int main(void) {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	
-	ll tt;
-	cin>>tt;
-	while(tt--){
-		solve();
-	}
-
-
-
-	return 0;
 }
