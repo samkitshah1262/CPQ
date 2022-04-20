@@ -62,26 +62,52 @@ void solve(){
     }
     forn(i,n){
         pair<ll,ll>p;
-        p.F=v1[i];
-        p.S=v2[i];
+        p.F=v1[i]-v2[i];
+        p.S=v1[i];
         vp.pb(p);
     }
-    sam=sam+((vp[0].S)*(vp[0].S+1))/2;
-    //cout<<sam<<"sam"<<endl;
-    x=vp[0].S;
-    for(i=0;i<n-1;i++){
-        if(vp[i+1].F-vp[i].F<vp[i+1].S){
-            //cout<<1<<endl;
-            sam=sam+gsum(vp[i+1].F-vp[i].F)+x*(vp[i+1].F-vp[i].F);
-            x=x+vp[i+1].F-vp[i].F;
+    
+    if(n == 1){
+        cout<<gsum(vp[0].S-vp[0].F)<<endl;
+        return;
+    }
+    //sort(all(vp));
+    i=n-1;
+    //ll j=n-1;
+    x=vp[n-1].F; y=vp[n-1].S;
+    while(i>=0){
+        if(vp[i].S<=x){
+            sam=sam+gsum(y-x);
+            x=vp[i].F; y=vp[i].S;
         }
         else{
-            //cout<<2<<endl;
-            sam=sam+gsum(vp[i+1].S);
-            x=gsum(vp[i+1].S);
+            x=min(x,vp[i].F);
         }
+        i--;
     }
+    sam=sam+gsum(y-x);
     cout<<sam<<endl;
+
+
+    // sam=sam+((vp[0].S)*(vp[0].S+1))/2;
+    // //cout<<sam<<"sam"<<endl;
+    // x=vp[0].S;
+    // for(i=0;i<n-1;i++){
+    //     if(vp[i+1].F-vp[i].F<vp[i+1].S){
+    //         //cout<<1<<endl;
+    //         sam=sam+gsum(vp[i+1].F-vp[i].F)+x*(vp[i+1].F-vp[i].F);
+    //         x=x+vp[i+1].F-vp[i].F;
+    //     }
+    //     else{
+    //         //cout<<2<<endl;
+    //         sam=sam+gsum(vp[i+1].S);
+    //         x=gsum(vp[i+1].S);
+    //     }
+    // }
+    // cout<<sam<<endl;
+
+
+
 }
 
 int main(void) {

@@ -54,14 +54,11 @@ void solve(){
     c=v[0];
     b=v[1];
     a=v[2]; 
-    a=a-c;
-    b=b-c;
-    sam=sam+c;
-    if(a/2 >= b){
-        sam=sam+b;
+    if(a/2<=b+c){
+        sam+= (a+b+c)/3;
     }
     else{
-        sam=sam+a/2;
+        sam+= b+c;
     }
     cout<<sam;
 }
