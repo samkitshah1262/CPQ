@@ -44,52 +44,41 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a,b,c,sam=0,flag=0,k=1,c2=0;
+	int i,n,x,y,a,b,c,sam=0;
     cin>>n;
     vi v;
     forn(i,n){
         cin>>a;
         v.pb(a);
     }
-	vi ans;
-	forn(i,n){
-		if(v[i]!=i+1){
-			b=i+1;
-			c2=1;
-			// cout<<"Sam";
-			break;
-		}
-		else{
-			ans.pb(i+1);
-		}
-	}
-	for(i=n-1;i>=0;i--){
-		if(v[i]==b){
-			flag=1;
-			c=i;
-		}
-		if(v[i]==b-1){
-			flag=0;
-			break;
-		}
-		if(flag==1){
-			ans.pb(v[i]);
-		}
-	}
-	for(i=c+1;i<n;i++){
-		ans.pb(v[i]);
-	}
-	if(c2!=1){
-		forn(i,v.size()){
-			cout<<v[i]<<" ";
-		}
-		cout<<endl;
-		return;
-	}
-	forn(i,ans.size()){
-		cout<<ans[i]<<" ";
-	}
-	cout<<endl;
+    forn(i,n){
+        // cin>>a;
+        //x=a;
+        a=v[i];
+        if(i==0){
+            x=a;
+        }
+        else{   
+            // if(a-x>3){
+            //     cout<<"NO"<<endl;
+            //     return;
+            // }
+            // if(a-x==3 && sam==0){
+            //     sam++;
+            // }
+            // else if(a-x==3 && sam==1){
+            //     cout<<"NO"<<endl;
+            //     return;
+            // }
+            sam+=a-x-1;
+        }
+        x=a;
+    }
+    if(sam>2){
+        cout<<"NO"<<endl;
+        return;
+    }
+    cout<<"YES"<<endl;
 }
 
 int main(void) {
@@ -101,8 +90,5 @@ int main(void) {
 	while(tt--){
 		solve();
 	}
-
-
-
 	return 0;
 }

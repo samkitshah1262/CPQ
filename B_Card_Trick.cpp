@@ -44,52 +44,24 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a,b,c,sam=0,flag=0,k=1,c2=0;
+	ll i,n,x,y,a,b,c,sam=0,m;
     cin>>n;
     vi v;
     forn(i,n){
         cin>>a;
         v.pb(a);
     }
-	vi ans;
-	forn(i,n){
-		if(v[i]!=i+1){
-			b=i+1;
-			c2=1;
-			// cout<<"Sam";
-			break;
-		}
-		else{
-			ans.pb(i+1);
-		}
-	}
-	for(i=n-1;i>=0;i--){
-		if(v[i]==b){
-			flag=1;
-			c=i;
-		}
-		if(v[i]==b-1){
-			flag=0;
-			break;
-		}
-		if(flag==1){
-			ans.pb(v[i]);
-		}
-	}
-	for(i=c+1;i<n;i++){
-		ans.pb(v[i]);
-	}
-	if(c2!=1){
-		forn(i,v.size()){
-			cout<<v[i]<<" ";
-		}
-		cout<<endl;
-		return;
-	}
-	forn(i,ans.size()){
-		cout<<ans[i]<<" ";
-	}
-	cout<<endl;
+    cin>>m;
+    vi vm;
+    forn(i,m){
+        cin>>a;
+        vm.pb(a);
+        sam+=a;
+    }
+    x=sam%n;
+    cout<<v[x]<<endl;
+
+
 }
 
 int main(void) {

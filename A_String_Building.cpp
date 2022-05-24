@@ -44,52 +44,35 @@ const int M = 1e9+7;
 
 
 void solve(){
-	int i,n,x,y,a,b,c,sam=0,flag=0,k=1,c2=0;
-    cin>>n;
-    vi v;
-    forn(i,n){
-        cin>>a;
-        v.pb(a);
-    }
-	vi ans;
-	forn(i,n){
-		if(v[i]!=i+1){
-			b=i+1;
-			c2=1;
-			// cout<<"Sam";
-			break;
+	int i,n,x,y,a=0,b=0,c,sam=0;
+	string s;
+	cin>>s;
+	forn(i,s.size()){
+		if(s[i]=='a'){
+			if(b==1){
+				cout<<"NO"<<endl;
+				return;
+			}
+			a++;b=0;
+
 		}
 		else{
-			ans.pb(i+1);
+			if(a==1){
+				cout<<" NO"<<endl;
+				return;
+			}
+			a=0;b++;
 		}
 	}
-	for(i=n-1;i>=0;i--){
-		if(v[i]==b){
-			flag=1;
-			c=i;
-		}
-		if(v[i]==b-1){
-			flag=0;
-			break;
-		}
-		if(flag==1){
-			ans.pb(v[i]);
-		}
-	}
-	for(i=c+1;i<n;i++){
-		ans.pb(v[i]);
-	}
-	if(c2!=1){
-		forn(i,v.size()){
-			cout<<v[i]<<" ";
-		}
-		cout<<endl;
+	if(a==1){
+		cout<<"NO"<<endl;
 		return;
 	}
-	forn(i,ans.size()){
-		cout<<ans[i]<<" ";
+	if(b==1){
+		cout<<"NO"<<endl;
+		return;
 	}
-	cout<<endl;
+	cout<<"YES"<<endl;
 }
 
 int main(void) {

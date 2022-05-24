@@ -43,53 +43,19 @@ void setup(string s) {
 const int M = 1e9+7;
 
 
-void solve(){
-	int i,n,x,y,a,b,c,sam=0,flag=0,k=1,c2=0;
-    cin>>n;
-    vi v;
-    forn(i,n){
-        cin>>a;
-        v.pb(a);
+void solve(int sam){
+	ll i,n,x,y,a=0,b=0,c=0,d=0,sum;
+    cin>>n>>x>>y;
+    sum=(n*(n+1))/2;
+    if(sum%(x+y)==0){
+        cout<<"Case #"<<sam<<": "<<"POSSIBLE"<<endl;
+        // return;
+        
     }
-	vi ans;
-	forn(i,n){
-		if(v[i]!=i+1){
-			b=i+1;
-			c2=1;
-			// cout<<"Sam";
-			break;
-		}
-		else{
-			ans.pb(i+1);
-		}
-	}
-	for(i=n-1;i>=0;i--){
-		if(v[i]==b){
-			flag=1;
-			c=i;
-		}
-		if(v[i]==b-1){
-			flag=0;
-			break;
-		}
-		if(flag==1){
-			ans.pb(v[i]);
-		}
-	}
-	for(i=c+1;i<n;i++){
-		ans.pb(v[i]);
-	}
-	if(c2!=1){
-		forn(i,v.size()){
-			cout<<v[i]<<" ";
-		}
-		cout<<endl;
-		return;
-	}
-	forn(i,ans.size()){
-		cout<<ans[i]<<" ";
-	}
-	cout<<endl;
+    else{
+        cout<<"Case #"<<sam<<": "<<"IMPOSSIBLE"<<endl;
+        return;
+    }
 }
 
 int main(void) {
@@ -98,11 +64,9 @@ int main(void) {
 	
 	ll tt;
 	cin>>tt;
-	while(tt--){
-		solve();
+	forn(sam,tt){
+		solve(sam);
 	}
-
-
 
 	return 0;
 }
